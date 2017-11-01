@@ -1,9 +1,9 @@
-class ReviewsController < ApplicationController
+class ReviewsController < OpenReadController
   before_action :set_review, only: [:show, :update, :destroy]
 
   # GET /reviews
   def index
-    @reviews = Review.all
+    @reviews = current_user.reviews.all
 
     render json: @reviews
   end
@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = current_user.reviews.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
