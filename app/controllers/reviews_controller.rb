@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 class ReviewsController < OpenReadController
   before_action :set_review, only: [:show, :update, :destroy]
 
   # GET /reviews
   def index
-    @reviews = current_user.reviews.all
+    @reviews = Review.all
 
     render json: @reviews
   end

@@ -1,6 +1,10 @@
+# frozen_string_literal: true
 class CreateReviews < ActiveRecord::Migration[5.0]
   def change
     create_table :reviews do |t|
+      t.string :reviewee_given_name
+      t.string :reviewee_surname
+      t.string :reviewee_business_unit
       t.integer :qowp
       t.integer :prob
       t.integer :imef

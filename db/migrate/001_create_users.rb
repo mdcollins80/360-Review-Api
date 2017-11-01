@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :business_unit
       t.string :given_name
       t.string :surname
-      t.references :manager
 
       t.timestamps null: false
     end
