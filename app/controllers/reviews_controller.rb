@@ -16,10 +16,10 @@ class ReviewsController < ProtectedController
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     if @review.save
-      render json: @review, status: :created, location: @review
+      render json: @review, status: :created
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class ReviewsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def review_params
-      params.require(:review).permit(:qowp, :prob, :imef, :opfb, :team, :comm, :efco, :reli, :mgmt, :strengths, :improves, :openresp)
+      params.require(:review).permit(:reviewee_given_name, :reviewee_surname, :reviewee_business_unit, :qowp, :prob, :imef, :opfb, :team, :comm, :efco, :reli, :mgmt, :strengths, :improves, :openresp)
     end
 end
