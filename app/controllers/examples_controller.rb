@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ExamplesController < OpenReadController
-  before_action :set_example, only: [:update, :destroy]
+  before_action :set_example, only: [:show, :update, :destroy]
 
   # GET /examples
   # GET /examples.json
