@@ -3,6 +3,7 @@ class User < ApplicationRecord
   include Authentication
   has_many :examples
   has_many :reviews
-
-  # belongs_to :manager, class_name: "User"
+  has_many :reviewees, :through => :reviews, :source => 'reviewee'
+  # has_many :inverse_reviews, class_name: :review, foreign_key: :reviewee_id
+  # has_many :reviewers, class_name: :user, through: :inverse_reviews, source: :user
 end
