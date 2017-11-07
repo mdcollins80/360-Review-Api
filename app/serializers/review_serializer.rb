@@ -4,4 +4,5 @@ class ReviewSerializer < ActiveModel::Serializer
              :reviewee_business_unit, :qowp, :prob, :imef, :opfb, :team, :comm,
              :efco, :reli, :mgmt, :strengths, :improves, :openresp, :was_saved,
              :reviewee_id
+  belongs_to :reviewee, :class_name => 'User'
 end
